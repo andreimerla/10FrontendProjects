@@ -1,0 +1,44 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: rgb(128, 148, 212);
+}
+.calculator{
+  background-color: rgb(78, 61, 236);
+  display: grid;
+  place-items: center;
+  height: 330px;
+  width: 330px;
+  border-radius: 10px;
+  box-shadow: 5px 5px
+}
+
+.inputDisplay{
+  background-color: rgb(50, 47, 207);
+  width:280px;
+  height:100px;
+  padding:10px;
+  outline: none;
+  font-size: 36px;
+  text-align: right;
+  color:aliceblue
+
+}
+
+button {
+  border:none;
+  width:40px;
+  height:30px;
+  background-color: rgb(28, 28, 180);
+  margin:1px ;
+  padding:1px;
+  color:aliceblue;
+  
+}
+button:hover{
+  background-color: rgb(51, 51, 175);
+}
+
+
