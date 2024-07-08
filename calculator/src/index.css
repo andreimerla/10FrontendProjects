@@ -41,4 +41,19 @@ button:hover{
   background-color: rgb(51, 51, 175);
 }
 
+.btn-history{
+  position: absolute;
+  top:34%;
+  right: 61%;
+  border-radius: 50%;
+  height: 40px;
+  width:40px;
+}
+.history{
+  background-color: rgb(42, 27, 173);
+  height: 200px;
+  width: 200px;
+  color: black; 
+  font-size: 20px;
+}
 
