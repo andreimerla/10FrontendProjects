@@ -61,6 +61,11 @@ const Calculator=() =>{
    }
     
   }
+
+  const handleHistoryItem = (item)=>{
+    setDisplay(item);
+
+  }
  
   return (
     <>
@@ -118,7 +123,7 @@ const Calculator=() =>{
             </div>
         </div>
     </div>
-    {historyVisibility && <History history={history}/>}
+    {historyVisibility && <History onHistoryItemClicked={handleHistoryItem}history={history}/>}
     </>
   )
 }
