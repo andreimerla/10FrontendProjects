@@ -1,8 +1,17 @@
 import Calculator from "./components/Calculator";
+import { ThemeProvider } from "./components/ThemeContext";
+import DefaultThemes from "./components/DefaultThemes";
+import ColorPicker from "./components/ColorPicker";
 function App() {
   return (
     <>
-      <Calculator />
+      <ThemeProvider>
+        <div className="appContainer">
+          <DefaultThemes />
+          <Calculator />
+          <ColorPicker />
+        </div>
+      </ThemeProvider>
     </>
   );
 }

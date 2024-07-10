@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState } from 'react'
 import toRPN from '../utils/toRPN';
 import RPNEvaluator from '../utils/RPNEvaluator';
 import History from './History';
+import Button from './Button';
+import ThemeContext from './ThemeContext';
 
 
 const Calculator=() =>{
@@ -10,6 +12,8 @@ const Calculator=() =>{
   const [isInside,setIsInside] =useState(false);
   const [history,setHistory] = useState([]);
   const [historyVisibility,setHistoryVisibility] = useState(false);
+  const {theme} = useContext(ThemeContext);
+
   const handleChange = (event)=>{
     setDisplay(event.target.value)
     console.log(display);
@@ -69,61 +73,61 @@ const Calculator=() =>{
  
   return (
     <>
-    <div className="calculator">
+    <div style={{backgroundColor:theme.calculator}}className="calculator">
         <div className='display'>
-            <input onChange={handleChange}className='inputDisplay' type="text" value={display}/>
-            <button onClick={handleHistory} className='btn-history'>H</button>
+            <input  style ={{backgroundColor:theme.display,color:theme.text}}onChange={handleChange}className='inputDisplay' type="text" value={display}/>
+            <Button  onClick={handleHistory} className='btn-history' >H</Button>
         </div>
-        <div className='container'>
+        <div  className='container'>
            
-            <div className='button-div'>
-                <button>Rad</button>
-                <button>Deg</button>
-                <button>x!</button>
-                <button onClick={()=>{handleNumber("(")}}>(</button>
-                <button onClick={()=>{handleNumber(")")}}>)</button>
-                <button onClick={()=>{handleNumber("%")}}>%</button>
-                <button onClick={()=>{setDisplay("")}}>AC</button>
+            <div className='Button-div'>
+                <Button  >Rad</Button>
+                <Button >Deg</Button>
+                <Button >x!</Button>
+                <Button >(</Button>
+                <Button >)</Button>
+                <Button >%</Button>
+                <Button onClick={()=>setDisplay("")} >AC</Button>
             </div >
-            <div className='button-div'>
-                <button>Inv</button>
-                <button onClick={()=>{handleInside("sin")}}>sin</button>
-                <button onClick={()=>{handleInside("ln")}}>ln</button>
-                <button onClick={()=>{handleNumber("7")}}>7</button>
-                <button onClick={()=>{handleNumber("8")}}>8</button>
-                <button onClick={()=>{handleNumber("9")}}>9</button>
-                <button onClick={()=>{handleNumber("/")}}>/</button>
+            <div className='Button-div'>
+                <Button >Inv</Button>
+                <Button  onClick={()=>{handleInside("sin")}}>sin</Button>
+                <Button  onClick={()=>{handleInside("ln")}}>ln</Button>
+                <Button  onClick={()=>{handleNumber("7")}}>7</Button>
+                <Button  onClick={()=>{handleNumber("8")}}>8</Button>
+                <Button  onClick={()=>{handleNumber("9")}}>9</Button>
+                <Button  onClick={()=>{handleNumber("/")}}>/</Button>
             </div>
-            <div className='button-div'>
-                <button onClick={()=>{handleNumber("π")}}>π</button>
-                <button onClick={()=>{handleInside("cos")}}>cos</button>
-                <button onClick={()=>{handleInside("log")}}>log</button>
-                <button onClick={()=>{handleNumber("4")}}>4</button>
-                <button onClick={()=>{handleNumber("5")}}>5</button>
-                <button onClick={()=>{handleNumber("6")}}>6</button>
-                <button onClick={()=>{handleNumber("*")}}>x</button>
+            <div className='Button-div'>
+                <Button  onClick={()=>{handleNumber("π")}}>π</Button>
+                <Button  onClick={()=>{handleInside("cos")}}>cos</Button>
+                <Button  onClick={()=>{handleInside("log")}}>log</Button>
+                <Button  onClick={()=>{handleNumber("4")}}>4</Button>
+                <Button  onClick={()=>{handleNumber("5")}}>5</Button>
+                <Button  onClick={()=>{handleNumber("6")}}>6</Button>
+                <Button  onClick={()=>{handleNumber("*")}}>x</Button>
             </div>
-            <div className='button-div'>
-                <button onClick={()=>{handleNumber("e")}}>e</button>
-                <button onClick={()=>{setDisplay(prevDisplay=>prevDisplay+"tan()")}}>tan</button>
-                <button onClick={()=>{handleInside("√")}}>√</button>
-                <button onClick={()=>{handleNumber("1")}}>1</button>
-                <button onClick={()=>{handleNumber("2")}}>2</button>
-                <button onClick={()=>{handleNumber("3")}}>3</button>
-                <button onClick={()=>{handleNumber("-")}}>-</button>
+            <div className='Button-div'>
+                <Button  onClick={()=>{handleNumber("e")}}>e</Button>
+                <Button  onClick={()=>{setDisplay(prevDisplay=>prevDisplay+"tan()")}}>tan</Button>
+                <Button  onClick={()=>{handleInside("√")}}>√</Button>
+                <Button  onClick={()=>{handleNumber("1")}}>1</Button>
+                <Button  onClick={()=>{handleNumber("2")}}>2</Button>
+                <Button  onClick={()=>{handleNumber("3")}}>3</Button>
+                <Button  onClick={()=>{handleNumber("-")}}>-</Button>
             </div>
-            <div className='button-div'>
-                <button>Ans</button>
-                <button>EXP</button>
-                <button>a^b</button>
-                <button onClick={()=>{handleNumber("0")}}>0</button>
-                <button onClick={()=>{handleNumber(".")}}>.</button>
-                <button onClick={handleEqual}>=</button>
-                <button onClick={()=>{handleNumber("+")}}>+</button>
+            <div className='Button-div'>
+                <Button  >Ans</Button>
+                <Button >EXP</Button>
+                <Button >a^b</Button>
+                <Button  onClick={()=>{handleNumber("0")}}>0</Button>
+                <Button  onClick={()=>{handleNumber(".")}}>.</Button>
+                <Button  onClick={handleEqual}>=</Button>
+                <Button  onClick={()=>{handleNumber("+")}}>+</Button>
             </div>
         </div>
     </div>
-    {historyVisibility && <History onHistoryItemClicked={handleHistoryItem}history={history}/>}
+    {historyVisibility && <History onHistoryItemClicked={handleHistoryItem} history={history} theme={theme}/>}
     </>
   )
 }

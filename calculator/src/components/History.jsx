@@ -2,9 +2,11 @@ import React from 'react'
 import { useState,useEffect } from 'react'
 
 
-const History=({history,onHistoryItemClicked})=> {
+const History=({history,onHistoryItemClicked,theme})=> {
   const [input,setInput] = useState([]);
   const [output,setOutput] = useState([])
+  
+  
   useEffect(() => {
     const newInput = [];
     const newOutput = [];
@@ -19,13 +21,13 @@ const History=({history,onHistoryItemClicked})=> {
     setOutput(newOutput);
   }, [history]);
   return (
-    <div className="history">
+    <div style={{backgroundColor:theme.calculator}} className="history">
         <ul>
             {input.map((item,index)=>(
-              <li className="history-item">
-                <span onClick={()=>onHistoryItemClicked(item)} className="history-element input-element">{item}</span>
+              <li  className="history-item">
+                <span style={{border:theme.border, color:theme.text}} onClick={()=>onHistoryItemClicked(item)} className="history-element input-element">{item.substring(0,10)+"..."}</span>
                 <span className='history-equal'>=</span>
-                <span onClick={()=>onHistoryItemClicked(output[index])} className="history-element output-element">{output[index]}</span>
+                <span style ={{border:theme.border,color:theme.text}}onClick={()=>onHistoryItemClicked(output[index])} className="history-element output-element">{output[index]}</span>
               </li>
             ))}
         </ul>
