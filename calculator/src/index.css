@@ -1,23 +1,24 @@
-body{
-    background-color: rgb(128, 148, 212);
-    
+body {
+  background-color: rgb(128, 148, 212);
+
 }
 
-.appContainer{
-  display:flex;
+.appContainer {
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  
+
 }
-.calculator{
+
+.calculator {
   display: grid;
   place-items: center;
   height: 330px;
   width: 330px;
   border-radius: 10px;
   box-shadow: 5px 5px;
-  margin:20px
+  margin: 20px
 }
 
 
@@ -25,82 +26,89 @@ body{
 
 
 .customButton {
-  border:none;
-  width:40px;
-  height:30px;
-  margin:1px ;
-  padding:1px;
+  border: none;
+  width: 40px;
+  height: 30px;
+  margin: 1px;
+  padding: 1px;
 
-  
+
 }
-.customButton:hover{
+
+.customButton:hover {
   cursor: pointer;
 }
-.history{
- 
+
+.history {
+
   height: 185px;
   width: 310px;
   display: flex;
-  text-align:left;
+  text-align: left;
   position: fixed;
-  top:48vh;
-  right:86vh;
+  top: 46vh;
+  right: 86vh;
   border-radius: 10px;
   overflow: auto;
 }
 
-.history-element{
+.history-element {
   font-size: 15px;
-  list-style-type:none;
+  list-style-type: none;
   margin-left: -30px;
-  padding:4px;
-  
+  padding: 4px;
+
 
 }
 
-.history-item{
+.history-item {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
 }
 
-.history-equal{
+.history-equal {
   font-size: 15px;
-  padding:4px;
-  margin-right:-20px
+  padding: 4px;
+  margin-right: -20px
 }
+
 .history-item .output-element {
   margin-left: 20px;
 }
 
 
-.history-element:hover{
-  
+.history-element:hover {
+
   cursor: pointer;
 }
 
-.display{
+.display {
   position: relative;
 }
-.inputDisplay{
-  width:280px;
-  height:100px;
-  padding:10px;
+
+.inputDisplay {
+  width: 280px;
+  height: 100px;
+  padding: 10px;
   outline: none;
   font-size: 36px;
   text-align: right;
 }
-.btn-history{
+
+.btn-history {
   position: absolute;
-  top:8%;
-  left:3%;
+  top: 8%;
+  left: 3%;
 }
-.themeButtons{
-  width:310px;
-  height:50px;
-  margin:10px
+
+.themeButtons {
+  width: 310px;
+  height: 50px;
+  margin: 10px
 }
-.themes-container{
+
+.themes-container {
   height: 330px;
   width: 330px;
   border-radius: 10px;
@@ -109,34 +117,39 @@ body{
   flex-direction: column;
 
 }
-.colorPickerContainer{
+
+.colorPickerContainer {
   height: 330px;
   width: 330px;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
   box-shadow: black 5px 5px;
-  position:relative;
- 
+
+
 }
 
-.colorInput{
+.colorInput {
   initial-value: rgb(78, 61, 236);
 }
 
-.themeRed{
-  background-image:linear-gradient(to right,rgb(235, 64, 52),rgb(171, 14, 14),rgb(194, 64, 64), rgb(163, 9, 7));
+.themeRed {
+  background-image: linear-gradient(to right, rgb(235, 64, 52), rgb(171, 14, 14), rgb(194, 64, 64), rgb(163, 9, 7));
 
 }
-.themeBlack{
-  background-image:linear-gradient(to right,rgb(31, 30, 30),rgb(79, 77, 77),rgb(54, 53, 53), rgb(36, 35, 35));
+
+.themeBlack {
+  background-image: linear-gradient(to right, rgb(31, 30, 30), rgb(79, 77, 77), rgb(54, 53, 53), rgb(36, 35, 35));
 }
-.themeGreen{
-  background-image:linear-gradient(to right,rgb(45, 168, 3),rgb(103, 230, 60),rgb(58, 138, 32), rgb(11, 102, 25));
+
+.themeGreen {
+  background-image: linear-gradient(to right, rgb(45, 168, 3), rgb(103, 230, 60), rgb(58, 138, 32), rgb(11, 102, 25));
 }
-.themePink{
-  background-image:linear-gradient(to right,rgb(224, 18, 138),rgb(171, 29, 112),rgb(189, 38, 126), rgb(186, 15, 129));
+
+.themePink {
+  background-image: linear-gradient(to right, rgb(224, 18, 138), rgb(171, 29, 112), rgb(189, 38, 126), rgb(186, 15, 129));
 }
-.themeInitial{
-  background-image:linear-gradient(to right,rgb(78, 61, 236),rgb(28, 28, 180),rgb(51, 51, 175), rgb(44, 71, 176));
+
+.themeInitial {
+  background-image: linear-gradient(to right, rgb(78, 61, 236), rgb(28, 28, 180), rgb(51, 51, 175), rgb(44, 71, 176));
 }

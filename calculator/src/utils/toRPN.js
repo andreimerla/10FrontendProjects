@@ -23,6 +23,50 @@ const operators = {
     prec: 2,
     assoc: "left",
   },
+  "log": {
+    prec: 5,
+    assoc: "right",
+  },
+  "ln":{
+    prec:5,
+    assoc:"rights"
+  },
+  "sin":{
+    prec:5,
+    assoc:"right"
+  },
+  "cos":{
+    prec:5,
+    assoc:"right"
+  },
+  "√":{
+    prec:5,
+    assoc:"right"
+  },
+  "tan":{
+    prec:5,
+    assoc:"right"
+  },
+  "!":{
+    prec:5,
+    assoc:"right"
+  },
+  "e":{
+    prec:5,
+    assoc:"right"
+  },
+  "arcsin":{
+    prec:5,
+    assoc:"right"
+  },
+  "arccos":{
+    prec:5,
+    assoc:"right"
+  },
+  "arctan":{
+    prec:5,
+    assoc:"right"
+  },
 };
 
 const assert = (predicate) => {
@@ -41,15 +85,18 @@ const toRPN = (input) => {
   const handlePop = () => stack.pop();
 
   const handleToken = (token) => {
-    if (!isNaN(parseFloat(token)) || token === "." || token === "e") {
+    if (!isNaN(parseFloat(token)) || token === "." || token === "e" || token==="π" ) {
       if (token === "e") {
-        currentNumber = 2.718;
-      } else {
+        currentNumber += Math.E; 
+      } else if(token ==="π"){
+        currentNumber += 3.14
+      }
+      else {
         currentNumber += token; // Adaugă cifra la numărul curent
       }
     } else {
       if (currentNumber !== "") {
-        addToOutput(currentNumber); // Adaugă numărul acumulat la output
+        addToOutput(currentNumber.trim()); // Adaugă numărul acumulat la output
         currentNumber = ""; // Resetăm acumulatorul pentru următorul număr
       }
 
@@ -89,10 +136,29 @@ const toRPN = (input) => {
     }
   };
 
-  for (let i of input) {
-    if (i === " ") continue;
+  let i = 0;
+  while (i < input.length) {
+    const char = input[i];
+    if (char === " ") {
+      i++;
+      continue;
+    }
 
-    handleToken(i);
+    if (char.match(/[a-z]/i)) {
+      let func = "";
+      while (i < input.length && input[i].match(/[a-z]/i)) {
+        func += input[i];
+        i++;
+      }
+      if (opSymbols.includes(func)) {
+        handleToken(func);
+      } else {
+        throw new Error(`Invalid function: ${func}`);
+      }
+    } else {
+      handleToken(char);
+      i++;
+    }
   }
 
   // Adaugă ultimul număr acumulat (dacă există)
@@ -105,7 +171,7 @@ const toRPN = (input) => {
     addToOutput(stack.pop());
   }
 
-  return output;
+  return output.trim();
 };
 
 export default toRPN;
