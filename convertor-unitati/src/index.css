@@ -1,0 +1,52 @@
+.unitate {
+  background-color: rgb(158, 226, 226);
+  height: 100px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  height: 50px;
+  width: 250px;
+  background-color: antiquewhite;
+  font-size: 40px;
+  border: none;
+  direction: rtl;
+  text-align: right;
+  cursor: pointer;
+  overflow: scroll;
+
+}
+
+select {
+  height: 50px;
+  width: 160px;
+  border: none;
+  background-color: rgb(201, 187, 169);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+button {
+  height: 50px;
+  width: 90px;
+  border: none;
+  background-color: rgb(8, 194, 194);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(17, 161, 161);
+}
+
+.istoricElement {
+  font-size: 30px;
+}
+
+.istoric {
+  background-color: rgb(158, 226, 226);
+  height: 250px;
+  overflow: scroll;
+}
