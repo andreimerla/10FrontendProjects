@@ -1,0 +1,222 @@
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-image: url("./img/background.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+
+}
+
+.container {
+  display: grid;
+  position: relative;
+  bottom: 100px;
+}
+
+.title {
+  color: rgb(255, 255, 255);
+  font-size: 80px;
+  display: grid;
+  place-content: center;
+  font-family: cursive;
+  margin: 5px;
+}
+
+.gamemode-button {
+  border: none;
+  width: 220px;
+  height: 80px;
+  margin: 10px;
+  background-color: rgb(182, 171, 171);
+  border-radius: 10px;
+  font-size: 40px;
+  font-family: cursive;
+  color: rgb(0, 0, 0);
+}
+
+.gamemode-button:hover {
+  cursor: pointer;
+  background-color: rgb(197, 195, 195);
+}
+
+.difficulty-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 100%;
+  left: 15px;
+}
+
+.difficulty-button {
+  background-color: rgb(182, 171, 171);
+  border: none;
+  font-family: cursive;
+  margin: 10px;
+  color: rgb(0, 0, 0);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+
+}
+
+.difficulty-button:hover {
+  cursor: pointer;
+  background-color: rgb(197, 195, 195);
+
+}
+
+.background-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.play-button {
+  position: relative;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(to right, rgb(74, 255, 3), rgb(6, 134, 23), rgb(7, 133, 59));
+  border: none;
+  font-size: 30px;
+  background-color: transparent !important;
+  outline: none;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(32, 255, 3, 0.568);
+}
+
+.play-button:hover {
+  cursor: pointer;
+}
+
+.music-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.music-container {
+  width: 250px;
+  height: 210px;
+  backdrop-filter: blur(7px);
+  display: grid;
+  background-color: rgba(33, 161, 16, 0.253);
+  border-radius: 10px;
+  place-items: center;
+  position: absolute;
+  bottom: 600px;
+  left: 1450px;
+}
+
+.nav-button {
+  width: 50px;
+  height: 25px;
+  margin: 15px;
+  border: none;
+  background-color: rgba(240, 248, 255, 0);
+  color: rgba(32, 255, 3, 0.568);
+
+}
+
+.nav-button:hover {
+  cursor: pointer;
+}
+
+
+.song-name {
+  color: white;
+  margin: 2px;
+  font-family: cursive;
+  font-size: 18px;
+
+}
+
+.song-name:hover {
+  cursor: default;
+}
+
+.song-artist:hover {
+  cursor: default;
+}
+
+.song-artist {
+  color: white;
+  margin: 2px;
+  font-size: 14px;
+  font-family: cursive;
+}
+
+.img-song {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 80px;
+  height: 80px;
+}
+
+.gameboard {
+  width: 500px;
+  height: 500px;
+  background-color: rgba(0, 0, 0, 0.863);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  backdrop-filter: blur(2px);
+
+}
+
+.cell {
+  background-color: rgba(255, 255, 255, 0.295);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
+  margin: 5px;
+  color: rgb(255, 255, 255);
+}
+
+.cell:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.363);
+}
+
+.playerwinner {
+  color: white;
+  position: absolute;
+  left: 90px;
+  font-size: 25px;
+}
+
+.game-container {
+  position: relative;
+}
+
+.control-button {
+  border: none;
+  width: 80px;
+  height: 40px;
+  margin: 8px;
+  background-color: rgba(66, 233, 108, 0.459);
+  backdrop-filter: blur(8px);
+  border-radius: 6px;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-button:hover {
+  cursor: pointer;
+  background-color: rgba(25, 218, 73, 0.623);
+
+}
