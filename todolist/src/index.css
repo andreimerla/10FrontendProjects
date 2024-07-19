@@ -148,3 +148,38 @@ body {
   margin: 5px 5px 5px 5px;
 
 }
+
+.task-container {
+  position: relative;
+}
+
+.delete-button {
+  border: none;
+  position: absolute;
+  bottom: 9px;
+  right: 15px;
+  background-color: rgba(240, 248, 255, 0);
+  font-size: 20px;
+}
+
+.delete-button:hover {
+  cursor: pointer;
+}
+
+.checkbox {
+  position: absolute;
+  border: none;
+  bottom: 13px;
+  right: 40px;
+  width: 18px;
+  height: 18px;
+  background-color: aqua;
+}
+
+.checkbox:checked {
+  accent-color: rgb(173, 173, 173);
+}
+
+.checkbox:hover {
+  cursor: pointer;
+}

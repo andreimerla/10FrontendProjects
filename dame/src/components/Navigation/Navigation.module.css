@@ -1,0 +1,30 @@
+.navigation {
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.295);
+    display: flex;
+    justify-content: right;
+    height: 50px;
+    gap: 100px;
+    position: relative;
+
+
+}
+
+.buttons {
+    border: none;
+    background-color: rgba(240, 248, 255, 0);
+    margin: 12px;
+    font-size: 18px;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-right: 20px;
+    height: 50px;
+    position: relative;
+    bottom: 12px;
+
+}
+
+.buttons:hover {
+    cursor: pointer;
+    background-color: rgba(240, 248, 255, 0.103);
+}

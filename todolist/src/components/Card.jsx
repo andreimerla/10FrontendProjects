@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useContext } from "react";
 import CardNumberContext from "./CardNumberContext";
-
+import { MdDelete } from "react-icons/md"
 const Card = () => {
     const [isPressed, setIsPressed] = useState(false);
     const [tasks, setTasks] = useState([]);
@@ -42,6 +42,10 @@ const Card = () => {
             setInput("");
         }
     };
+
+    const handleDeleteTask = (index) => {
+        setTasks(tasks.filter((_, i) => i != index));
+    }
     return (
         <div className="card-comp">
             {!isPressed ? (
@@ -63,7 +67,12 @@ const Card = () => {
                         <>
                             <input className="input-field-after" value={nameList} readOnly />
                             {tasks.map((item, index) => (
-                                <input key={index} className="task-input" value={item} readOnly />
+                                <div className="task-container">
+                                    <input key={index} className="task-input" value={item} readOnly />
+                                    <button className="delete-button" onClick={() => handleDeleteTask(index)}><MdDelete></MdDelete></button>
+                                    <input className="checkbox" type="checkbox" />
+                                </div>
+
                             ))}
                             {!isTaskAdded ? (
                                 <button onClick={handleTaskAdded} className="task-button">+ Add a card</button>

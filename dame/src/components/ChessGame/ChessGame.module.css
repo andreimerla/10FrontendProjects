@@ -1,0 +1,17 @@
+.chessGameContainer {
+    display: flex;
+    position: relative;
+}
+
+.gameContainer {
+    margin-left: 50px;
+}
+
+.timerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vf;
+    margin-left: 100px;
+
+}
