@@ -2,8 +2,11 @@ import React from 'react'
 import { useState } from 'react'
 import styles from "./Board.module.css"
 import { chessPieceImage } from '../utils/chessPieceImage'
-import { isValidMove } from '../utils/chessEngine'
+import { isValidMove, isCheckmate, isChecked } from '../utils/chessEngine'
+import { useContext } from 'react'
+import SettingsContext from '../SettingsContext/SettingsContext'
 const Board = () => {
+    const { boardStyle, toggleBoard } = useContext(SettingsContext)
     const [board, setBoard] = useState([
         ["brook", "bknight", "bbishop", "bqueen", "bking", "bbishop", "bknight", "brook"],
         ["bpawn", "bpawn", "bpawn", "bpawn", "bpawn", "bpawn", "bpawn", "bpawn"],
@@ -17,43 +20,69 @@ const Board = () => {
     const [selectedPiece, setSelectedPiece] = useState(null);
 
     const [pieceSelected, setPieceSelected] = useState(null);
+    const [enPassant, setEnPassant] = useState(null);
+    const [player, setPlayer] = useState("w");
+    const [startGame, setStartGame] = useState(true)
+    const [winner, setWinner] = useState(null)
+
+
 
     const handlePieceClick = (piece, rowIndex, colIndex) => {
-        let newBoard = [...board];
-        if (piece === "" && selectedPiece === null) {
-            return;
-        } else {
-            if (piece != "") {
-                setPieceSelected(piece);
+        if (startGame) {
+            if (isCheckmate(board, player)) {
+                setStartGame(false);
+                if (player === "white") {
+                    setWinner("black")
+                } else {
+                    setWinner("white")
+                }
+
+                return;
             }
-            if (newBoard[rowIndex][colIndex] === "" && selectedPiece != null) {
-                console.log(`piesa selectata este ${pieceSelected}`)
-                console.log(`linia piesei este ${selectedPiece.rowIndex}`)
-                console.log(`coloana piesei este ${selectedPiece.colIndex}`)
-                console.log(`linia unde trebuie mutata este ${rowIndex}`)
-                console.log(`coloana unde trebuie mutata este ${colIndex}`)
+
+
+            let newBoard = [...board];
+
+            if (piece === "" && selectedPiece === null) {
+                return;
+            }
+
+            const pieceColor = newBoard[rowIndex][colIndex].charAt(0);
+
+            if (player === "w" && pieceColor === "w" || player === "b" && pieceColor === "b") {
+                if (selectedPiece === null) {
+                    setSelectedPiece({ rowIndex, colIndex });
+                    setPieceSelected(piece);
+                } else if (selectedPiece.rowIndex === rowIndex && selectedPiece.colIndex === colIndex) {
+                    setSelectedPiece(null);
+                    setPieceSelected(null);
+                } else {
+                    setSelectedPiece({ rowIndex, colIndex });
+                    setPieceSelected(piece);
+                }
+
+            } else if (selectedPiece !== null) {
                 if (isValidMove(newBoard, pieceSelected, selectedPiece.rowIndex, selectedPiece.colIndex, rowIndex, colIndex)) {
                     newBoard[selectedPiece.rowIndex][selectedPiece.colIndex] = "";
                     newBoard[rowIndex][colIndex] = pieceSelected;
                     setBoard(newBoard);
                     setPieceSelected(null);
                     setSelectedPiece(null);
-                } else {
-                    alert("is not a valid move")
-                }
+                    setEnPassant(null);
+                    console.log(newBoard)
+                    setPlayer(player === "w" ? "b" : "w");
+                    console.log(startGame);
 
 
-            } else {
-                if (selectedPiece === null) {
-                    setSelectedPiece({ rowIndex, colIndex })
-                } else if (selectedPiece.rowIndex != rowIndex || selectedPiece.colIndex != colIndex) {
-                    setSelectedPiece({ rowIndex, colIndex });
                 } else {
-                    setSelectedPiece(null);
+                    alert("invalid move")
                 }
+
             }
-        }
+        } else {
+            return;
 
+        }
 
 
     }
@@ -62,15 +91,30 @@ const Board = () => {
             {board.map((row, rowIndex) => (
                 <div className={styles.boardRow} key={rowIndex}>
                     {row.map((cell, colIndex) => (
-                        <div onClick={() => handlePieceClick(cell, rowIndex, colIndex)} className={selectedPiece &&
-                            selectedPiece.rowIndex === rowIndex && selectedPiece.colIndex === colIndex ? styles.isSelectedPiece : styles.boardCell} key={colIndex}>
+                        <div onClick={() => handlePieceClick(cell, rowIndex, colIndex)}
+                            className={
+                                selectedPiece &&
+                                    selectedPiece.rowIndex === rowIndex &&
+                                    selectedPiece.colIndex === colIndex
+                                    ? styles.isSelectedPiece
+                                    : selectedPiece &&
+                                        isValidMove(board, pieceSelected, selectedPiece.rowIndex, selectedPiece.colIndex, rowIndex, colIndex)
+                                        ? styles.displayMove
+                                        : (rowIndex + colIndex) % 2 === 0
+                                            ? styles[boardStyle.defaultWhiteCell]
+                                            : styles[boardStyle.defaultBlackCell]
+
+                            } key={colIndex}>
                             {cell && <img className={styles.piece} src={chessPieceImage[cell]} alt={cell} />}
                         </div>
                     ))}
                 </div>
 
-            ))}
-        </div>
+            ))
+            }
+            <h1>{winner}</h1>
+            <button onClick={() => toggleBoard("whiteCell", "blackCell")}>clickme</button>
+        </div >
     )
 }
 
