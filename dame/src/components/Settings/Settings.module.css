@@ -1,5 +1,11 @@
 .settingsContainer {
-    width: 650px;
-    height: 650px;
-    background-color: bisque;
+    width: 350px;
+    height: 350px;
+    background-color: rgba(0, 0, 0, 0.247);
+    backdrop-filter: blur(15px);
+    position: relative;
+    top: 160px;
+    left: 705px;
+    display: grid;
+    color: white;
 }

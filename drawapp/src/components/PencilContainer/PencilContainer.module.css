@@ -1,0 +1,19 @@
+.container {
+    width: 200px;
+    height: 30%;
+    background-color: rgb(201, 178, 102);
+    position: absolute;
+    right: 10px;
+}
+
+.buttonPointer {
+    width: 20px;
+    height: 20px;
+    margin: 2px;
+    border: none;
+
+}
+
+.buttonPointer:hover {
+    cursor: pointer;
+}

@@ -10,7 +10,7 @@ const PlayerVsPlayerMenu = () => {
     const [timeValue, setTimeValue] = useState(50);
 
     const handleStart = () => {
-        navigate("/game", { state: { playerOneName, playerTwoName, timeValue } });
+        navigate("/game", { state: { playerOneName, playerTwoName, timeValue, gamemode: "player" } });
     }
     return (
         <div className={styles.menu}>

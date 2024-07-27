@@ -1,0 +1,29 @@
+.canvas {
+    border: 2px solid black;
+    position: relative;
+    background-color: white;
+}
+
+.buttonStyle {
+    border: none;
+    width: 100px;
+    height: 40px;
+    background-color: rgb(228, 163, 79);
+    margin: 5px;
+}
+
+.buttonStyle:hover {
+    cursor: pointer;
+    background-color: rgb(189, 134, 61);
+}
+
+.container {
+    position: relative;
+    display: grid;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,94 @@
+.menu {
+    width: 350px;
+    height: 350px;
+    background-color: rgba(0, 0, 0, 0.247);
+    backdrop-filter: blur(15px);
+    position: relative;
+    top: 160px;
+    left: 705px;
+    display: grid;
+    color: white;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+}
+
+.val {
+    position: absolute;
+    top: 55%;
+    left: 130px;
+}
+
+.range {
+    appearance: none;
+    width: 220px;
+    outline: none;
+    background-color: rgba(80, 112, 139, 0.425);
+    position: relative;
+    left: 10px;
+    border-radius: 10px;
+}
+
+.range::-moz-range-thumb {
+    background-color: rgb(255, 255, 255);
+    border: none;
+}
+
+.right {
+    position: relative;
+    left: 10px;
+}
+
+.left {
+    position: relative;
+    left: 10px;
+}
+
+.range:hover {
+    cursor: pointer;
+}
+
+.paragraf {
+    position: absolute;
+    top: -20px;
+    left: 105px;
+}
+
+.inputField {
+    background-color: rgba(240, 248, 255, 0.164);
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    outline: none;
+    position: absolute;
+    right: 7%;
+}
+
+.inputField:hover {
+    background-color: rgba(240, 248, 255, 0.226);
+    cursor: pointer;
+
+}
+
+.buttonStart {
+    width: 100px;
+    height: 50px;
+    border: none;
+    background-color: rgba(72, 122, 196, 0.671);
+}
+
+.buttonStart:hover {
+    cursor: pointer;
+    background-color: rgba(55, 109, 190, 0.671);
+}
+
+.paragraf2 {
+    position: absolute;
+    left: 10%;
+}

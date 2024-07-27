@@ -2,27 +2,26 @@ import React from 'react'
 import styles from "./Settings.module.css"
 import BoardCard from '../BoardCard/BoardCard'
 import { useContext } from 'react'
-import SettingsContext from '../SettingsContext/SettingsContext'
-import img1 from "../../img/chesspieces/black-bishop.png"
-import img2 from "../../img/chesspieces/black-king.png"
-import img3 from "../../img/chesspieces/black-knight.png"
+
+import defaultBoard from "../../img/chessboard/Default.png"
+import red from "../../img/chessboard/Red.png"
+import blue from "../../img/chessboard/Blue.png"
+import brown from "../../img/chessboard/Brown.png"
+import green from "../../img/chessboard/Green.png"
 
 
 const Settings = () => {
+
     const slides = [
-        { url: img1, alt: "bishop" },
-        { url: img2, alt: "king" },
-        { url: img3, alt: "knigth" },
+        { url: defaultBoard, alt: "defaultBoard", defWhite: "defaultWhiteCell", defBlack: "defaultBlackCell" },
+        { url: green, alt: "green", defWhite: "lightGreenCell", defBlack: "darkGreenCell" },
+        { url: blue, alt: "blue", defWhite: "lightBlueCell", defBlack: "darkBlueCell" },
+        { url: brown, alt: "brown", defWhite: "lightBrownCell", defBlack: "darkBrownCell" },
+        { url: red, alt: "red", defWhite: "whiteCell", defBlack: "blackCell" },
     ]
-    const { toggleBoard } = useContext(SettingsContext)
-    const changeBoard = () => {
-        toggleBoard("whiteCell", "blackCell")
-    }
     return (
         <div className={styles.settingsContainer}>
             <BoardCard slides={slides} />
-            <button onClick={changeBoard}>Change board</button>
-
         </div>
     )
 }

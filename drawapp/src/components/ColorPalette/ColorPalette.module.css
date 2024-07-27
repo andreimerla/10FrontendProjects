@@ -1,0 +1,87 @@
+.container {
+    display: flex;
+    background-color: antiquewhite;
+    width: 45px;
+    position: relative;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    width: 20px;
+    height: 20px;
+    border-radius: 0;
+    border: none;
+    margin: 1px 1px 1px 1px;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.red {
+    background-color: rgba(255, 0, 0, 0.007);
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.brown {
+    background-color: brown;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.purple {
+    background-color: purple;
+}
+
+.cyan {
+    background-color: cyan;
+}
+
+.black {
+    background-color: rgba(0, 0, 0, 0.144);
+}
+
+.white {
+    background-color: white;
+}
+
+.olive {
+    background-color: olive;
+}
+
+.lime {
+    background-color: lime;
+}
+
+.teal {
+    background-color: teal;
+}
+
+.navy {
+    background-color: navy;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.silver {
+    background-color: silver;
+}

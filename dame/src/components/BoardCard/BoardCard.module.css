@@ -1,5 +1,65 @@
 .boardContainer {
-    height: 400px;
-    width: 300px;
-    background-color: blue;
+    height: 250px;
+    width: 250px;
+    position: absolute;
+    left: 15%;
+    top: 3%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.boardImg {
+    height: 200px;
+    width: 200px;
+    margin: 30px
+}
+
+.leftElement {
+    position: absolute;
+    bottom: 39%;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    font-size: 30px;
+    left: -2%;
+    color: white;
+}
+
+.rightElement {
+    position: absolute;
+    bottom: 39%;
+    right: -2%;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    font-size: 30px;
+    color: white;
+}
+
+.leftElement:hover {
+    cursor: pointer;
+}
+
+.rightElement:hover {
+    cursor: pointer;
+}
+
+.changeButton {
+    border: none;
+    width: 150px;
+    height: 30px;
+    background-color: rgba(72, 122, 196, 0.671);
+    color: white;
+    border-radius: 5px;
+}
+
+.changeButton:hover {
+    cursor: pointer;
+    background-color: rgba(55, 109, 190, 0.671);
+}
+
+.buttonContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }

@@ -1,0 +1,36 @@
+.buttonPencil {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: rgb(206, 179, 91);
+}
+
+.buttonPencilPressed {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: rgb(199, 22, 22);
+}
+
+.buttonPencilPressed:hover {
+    cursor: pointer;
+    background-color: rgb(151, 19, 19);
+}
+
+.container {
+    position: relative;
+
+}
+
+.buttonPencil:hover {
+    cursor: pointer;
+    background-color: rgb(187, 158, 63);
+}

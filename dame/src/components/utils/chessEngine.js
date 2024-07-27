@@ -1,4 +1,4 @@
-const isValidMove = (board, piece, rowIndexPiece, colIndexPiece, moveRow, moveCol, isRecursive = false) => {
+const isValidMove = (board, piece, rowIndexPiece, colIndexPiece, moveRow, moveCol, isRecursive = false,isRokade) => {
     let newBoard;
     const color = piece.charAt(0);
 
@@ -60,7 +60,7 @@ const isValidMove = (board, piece, rowIndexPiece, colIndexPiece, moveRow, moveCo
         }
         case "wking":
         case "bking": {
-            const result = isValidKingMove(board, rowIndexPiece, colIndexPiece, moveRow, moveCol, color);
+            const result = isValidKingMove(board, rowIndexPiece, colIndexPiece, moveRow, moveCol, color,isRokade);
             if (result.valid) {
                 newBoard = result.board;
                 if (!isChecked(newBoard, color, isRecursive)) {
@@ -178,12 +178,13 @@ const isValidQueenMove = (board, rowIndexPiece, colIndexPiece, moveRow, moveCol,
     return bishopResult.valid ? bishopResult : rookResult;
 }
 
-const isValidKingMove = (board, rowIndexPiece, colIndexPiece, moveRow, moveCol, color) => {
+const isValidKingMove = (board, rowIndexPiece, colIndexPiece, moveRow, moveCol, color,isRokade) => {
     const rowDiff = Math.abs(moveRow - rowIndexPiece);
     const colDiff = Math.abs(moveCol - colIndexPiece);
     const piece = board[rowIndexPiece][colIndexPiece];
 
     const newBoard = board.map(row => [...row]);
+    
 
     if (rowDiff <= 1 && colDiff <= 1) {
         if (newBoard[moveRow][moveCol] === "" || newBoard[moveRow][moveCol].charAt(0) !== color) {
